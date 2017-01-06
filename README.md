@@ -1,5 +1,5 @@
 # literal-gibberish
-Generates a buffer of alphabetical pseudo-text. Alternative to Lorem ipsum sources.
+Generates a buffer of alphabetical pseudo-text. Alternative to [Lorem ipsum][lorem] sources.
 
 - Random-length lines of random-length "words"
 - Only letters and spaces in each line
@@ -18,7 +18,7 @@ Generates a buffer of alphabetical pseudo-text. Alternative to Lorem ipsum sourc
 ```sh
 $ npm install literal-gibberish
 ```
-If you plan to use literal-gibberish for testing, you probably want to use the **npm** option
+If you plan to use literal-gibberish for testing, you probably want to use the **npm install** option
 `--save-dev`.  
 
 ## Usage
@@ -38,10 +38,10 @@ litGib(callback);
 ## Options
 *Optional.* Supply options as an object containing any of the following properties.
 <dl>
-__<dt>size:</dt>__
+<dt>size:</dt>
 <dd>The number of bytes in the resulting buffer. Must be a positive integer.
  Default: 16384 (16KB)</dd>  
-__<dt>encoding:</dt>__
+<dt>encoding:</dt>
 <dd>Determines what byte values are allowed in the buffer, according to the
  letters that are mapped in the referenced encoding. The choices are:
   <ul>
@@ -50,7 +50,7 @@ __<dt>encoding:</dt>__
     <li>`'win1252'` - The notorious **[Windows-1252][win1252]** encoding that is often mistaken to be the same as **Latin-1**</li>
   </ul>
 </dd>  
-__<dt>eol:</dt>__
+<dt>eol:</dt>
 <dd>The end-of-line marker to insert at each line end. The choices are:
   <ul>
     <li>`'lf'` (default) or the equivalent `'\n'`</li>
@@ -73,13 +73,13 @@ Any assertion error thrown by misuse will *not* come this way.
 ### data
 An object with the following properties.
 <dl>
-__<dt>buffer</dt>__
+<dt>buffer</dt>
 <dd>Buffer populated with values for only letters, spaces, and the specified EOL marker</dd>
-__<dt>lines</dt>__
+<dt>lines</dt>
 <dd>Array of objects, each with these two properties:
   <ul>
-    <li>__start__ - index of the start of the line in the buffer</li>
-    <li>__end__ - index of the end of the line in the buffer</li>
+    <li>start - index of the start of the line in the buffer</li>
+    <li>end - index of the end of the line in the buffer</li>
   </ul>
 </dd>
 </dl>
@@ -154,7 +154,8 @@ to `toString()`, so your bytes were "utf8-ized" because the default encoding for
 
 ------
 
-[rnd]: (http://get.the.npmjs.link/for/crypto.randomBytes)
-[latin1]: (http://get.an.authoritative.link/for/ISO_8859-1)
-[win1252]: (http://get.an.authoritative.link/for/Windows-1252)
+[lorem]: (https://en.wikipedia.org/wiki/Lorem_ipsum)
+[rnd]: (https://nodejs.org/api/crypto.html#crypto_crypto_randombytes_size_callback)
+[latin1]: (https://en.wikipedia.org/wiki/ISO/IEC_8859-1)
+[win1252]: (https://en.wikipedia.org/wiki/Windows-1252)
 
