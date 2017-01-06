@@ -1,0 +1,44 @@
+{
+  "name": "literal-gibberish",
+  "version": "1.0.0",
+  "description": "Generate a buffer of alphabetical pseudo-text",
+  "license": "MIT",
+  "author": {
+    "name": "Matthew Rafferty",
+    "email": "mmraff@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmraff/literal-gibberish.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mmraff/literal-gibberish/issues"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4",
+    "mocha": "^2.5"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "alphabetical",
+    "characters",
+    "fake",
+    "filler",
+    "letters",
+    "lorem ipsum",
+    "nonsense",
+    "pseudo",
+    "test data",
+    "text",
+    "ascii",
+    "iso-8859",
+    "latin1",
+    "Windows-1252"
+  ]
+}
