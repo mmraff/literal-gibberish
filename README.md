@@ -38,40 +38,39 @@ litGib(callback);
 ## Options
 *Optional.* Supply options as an object containing any of the following properties.
 
-#### size:
-    The number of bytes in the resulting buffer. Must be a positive integer. Default: 16384 (16KB)
+#### size:  
+  The number of bytes in the resulting buffer. Must be a positive integer. Default: 16384 (16KB)
+#### encoding:  
+  Determines what byte values are allowed in the buffer, according to the letters that are mapped in the referenced encoding.
+  The choices are:  
+  * `'ascii'` (default)
+  * `'latin1'` - 8-bit encoding **[Latin-1][latin1]**, a.k.a. **[ISO 8859-1][latin1]**
+  * `'win1252'` - The notorious **[Windows-1252][win1252]** encoding that is often mistaken to be the same as **Latin-1**
 
-#### encoding:
-    Determines what byte values are allowed in the buffer, according to the letters that are mapped in the referenced encoding.
-    The choices are:  
-    * `'ascii'` (default)
-    * `'latin1'` - 8-bit encoding **[Latin-1][latin1]**, a.k.a. **[ISO 8859-1][latin1]**
-    * `'win1252'` - The notorious **[Windows-1252][win1252]** encoding that is often mistaken to be the same as **Latin-1**
-
-#### eol:
-    The end-of-line marker to insert at each line end. The choices are:  
-    * `'lf'` (default) or the equivalent `'\n'`</li>
-    * `'cr'` or the equivalent `'\r'`</li>
-    * `'crlf'` or the equivalent `'\r\n'`</li>
-    * `'nel'` - the 8-bit **NEXT LINE** control character common to **ISO 8859** encodings.  
-        Note: 'nel' is only valid with 'latin1' encoding.
+#### eol:  
+  The end-of-line marker to insert at each line end. The choices are:  
+  * `'lf'` (default) or the equivalent `'\n'`</li>
+  * `'cr'` or the equivalent `'\r'`</li>
+  * `'crlf'` or the equivalent `'\r\n'`</li>
+  * `'nel'` - the 8-bit **NEXT LINE** control character common to **ISO 8859** encodings.  
+  Note: 'nel' is only valid with 'latin1' encoding.
 
 EOL names in uppercase are also recognized.
 
 ## Callback Parameters
 
 ### error
-    Error handed down from [crypto.randomBytes][rnd].
-    Any assertion error thrown by misuse will *not* come this way.
+  Error handed down from [crypto.randomBytes][rnd].
+  Any assertion error thrown by misuse will *not* come this way.
 
 ### data
-    An object with the following properties.
-    #### buffer
-        Buffer populated with values for only letters, spaces, and the specified EOL marker
-    #### lines
-        Array of objects, each with these two properties:
-        * **start** - index of the start of the line in the buffer
-        * **end** - index of the end of the line in the buffer
+  An object with the following properties.  
+  **buffer**  
+    Buffer populated with values for only letters, spaces, and the specified EOL marker  
+  **lines**  
+  Array of objects, each with these two properties:  
+  + **start** - index of the start of the line in the buffer
+  + **end** - index of the end of the line in the buffer
 
 ## Examples
 
