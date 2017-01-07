@@ -38,16 +38,17 @@ litGib(callback);
 ## Options
 *Optional.* Supply options as an object containing any of the following properties.
 
-#### size
+### size
   The number of bytes in the resulting buffer. Must be a positive integer. Default: 16384 (16KB)
-#### encoding
+
+### encoding
   Determines what byte values are allowed in the buffer, according to the letters that are mapped in the referenced encoding.
   The choices are:  
   * `'ascii'` (default)
   * `'latin1'` - 8-bit encoding **[Latin-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1)**, a.k.a. **[ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1)**
   * `'win1252'` - The notorious **[Windows-1252](https://en.wikipedia.org/wiki/Windows-1252)** encoding that is often mistaken to be the same as **Latin-1**
 
-#### eol
+### eol
   The end-of-line marker to insert at each line end. The choices are:  
   * `'lf'` (default) or the equivalent `'\n'`</li>
   * `'cr'` or the equivalent `'\r'`</li>
@@ -59,11 +60,11 @@ EOL names in uppercase are also recognized.
 
 ## Callback Parameters
 
-#### error
+### error
   Error handed down from [crypto.randomBytes](https://nodejs.org/api/crypto.html#crypto_crypto_randombytes_size_callback).
   Any assertion error thrown by misuse will *not* come this way.
 
-#### data
+### data
 An object with the following properties.
 + **buffer** - Buffer populated with values for only letters, spaces, and the specified EOL marker
 + **lines** - Array of objects, each with these two properties:
