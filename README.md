@@ -1,5 +1,5 @@
 # literal-gibberish
-Generates a buffer of alphabetical pseudo-text. Alternative to [Lorem ipsum][lorem] sources.
+Generates a buffer of alphabetical pseudo-text. Alternative to [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum) sources.
 
 - Random-length lines of random-length "words"
 - Only letters and spaces in each line
@@ -38,16 +38,16 @@ litGib(callback);
 ## Options
 *Optional.* Supply options as an object containing any of the following properties.
 
-#### size:  
+#### size
   The number of bytes in the resulting buffer. Must be a positive integer. Default: 16384 (16KB)
-#### encoding:  
+#### encoding
   Determines what byte values are allowed in the buffer, according to the letters that are mapped in the referenced encoding.
   The choices are:  
   * `'ascii'` (default)
-  * `'latin1'` - 8-bit encoding **[Latin-1][latin1]**, a.k.a. **[ISO 8859-1][latin1]**
-  * `'win1252'` - The notorious **[Windows-1252][win1252]** encoding that is often mistaken to be the same as **Latin-1**
+  * `'latin1'` - 8-bit encoding **[Latin-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1)**, a.k.a. **[ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1)**
+  * `'win1252'` - The notorious **[Windows-1252](https://en.wikipedia.org/wiki/Windows-1252)** encoding that is often mistaken to be the same as **Latin-1**
 
-#### eol:  
+#### eol
   The end-of-line marker to insert at each line end. The choices are:  
   * `'lf'` (default) or the equivalent `'\n'`</li>
   * `'cr'` or the equivalent `'\r'`</li>
@@ -59,18 +59,16 @@ EOL names in uppercase are also recognized.
 
 ## Callback Parameters
 
-### error
-  Error handed down from [crypto.randomBytes][rnd].
+#### error
+  Error handed down from [crypto.randomBytes](https://nodejs.org/api/crypto.html#crypto_crypto_randombytes_size_callback).
   Any assertion error thrown by misuse will *not* come this way.
 
-### data
-  An object with the following properties.  
-  **buffer**  
-    Buffer populated with values for only letters, spaces, and the specified EOL marker  
-  **lines**  
-  Array of objects, each with these two properties:  
-  + **start** - index of the start of the line in the buffer
-  + **end** - index of the end of the line in the buffer
+#### data
+An object with the following properties.
++ **buffer** - Buffer populated with values for only letters, spaces, and the specified EOL marker
++ **lines** - Array of objects, each with these two properties:
+  + **start** - index of the start of the nth line in the buffer
+  + **end** - index of the end of the nth line in the buffer
 
 ## Examples
 
@@ -119,7 +117,7 @@ interface to test it.
 * A web page developer who needs blocks of arbitrary filler text to help assess a layout.
 
 **How random is it?**  
-It uses the [crypto.randomBytes][rnd] function that comes with **node.js**, so it
+It uses the [crypto.randomBytes](https://nodejs.org/api/crypto.html#crypto_crypto_randombytes_size_callback) function that comes with **node.js**, so it
 gives _"cryptographically strong pseudo-random data."_
 
 **How long are the 'words'/lines?**
@@ -135,6 +133,12 @@ Filler text is not meant to draw attention, never mind to be _spoken_.
 The next version will provide case control, so that the lines look more like
 standard text at a glance.
 
+**Why no symbol characters?**  
+I think they're distracting.
+
+**Why no punctuation?**  
+Say, that's a good idea for a transform stream that you could plug this module into...
+
 **When I convert the buffer toString(), I get a lot of question mark symbols...?**  
 You specified an encoding other than 'ascii', and then you didn't pass an encoding
 to `toString()`, so your bytes were "utf8-ized" because the default encoding for
@@ -142,8 +146,5 @@ to `toString()`, so your bytes were "utf8-ized" because the default encoding for
 
 ------
 
-[lorem]: (https://en.wikipedia.org/wiki/Lorem_ipsum)
-[rnd]: (https://nodejs.org/api/crypto.html#crypto_crypto_randombytes_size_callback)
-[latin1]: (https://en.wikipedia.org/wiki/ISO/IEC_8859-1)
-[win1252]: (https://en.wikipedia.org/wiki/Windows-1252)
+**License: MIT**
 
